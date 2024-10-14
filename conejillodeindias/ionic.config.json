@@ -1,0 +1,7 @@
+{
+  "name": "conejillodeindias",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
