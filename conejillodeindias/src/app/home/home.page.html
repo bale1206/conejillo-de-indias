@@ -1,7 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login de Acceso</ion-title>
-    <ion-button [routerLink]="['/controller']" fill="clear" slot="end">Admin</ion-button>
+    <ion-title>Acceso</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,26 +8,34 @@
   <div id="container">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Credenciales</ion-card-title>
+        <ion-card-title>Login</ion-card-title>
+        <ion-card-subtitle>Ingrese sus datos</ion-card-subtitle>
       </ion-card-header>
-
+    
       <ion-card-content>
-        <div class="login">
-          <img src="./assets/img/logo.webp" alt="Logo" />
-        </div>
-        <ion-list>
-          <ion-item>
-            <ion-input [(ngModel)]="user.username" placeholder="Usuario" labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input [(ngModel)]="user.password" type="password" placeholder="Contraseña" labelPlacement="floating"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-toggle [(ngModel)]="rememberMe">Recuerdame</ion-toggle>
-          </ion-item>
-          <ion-button fill="outline" (click)="validar()">Conectar</ion-button>
-          <ion-button fill="outline" [routerLink]="['/register']">Registrar</ion-button>
-        </ion-list>
+        <ion-input
+        type="username"
+        fill="solid"
+        label="Username"
+        labelPlacement="floating"
+        helperText="Enter a valid username"
+        errorText="Invalid username"
+        ngModel
+        Username
+        ></ion-input>
+        <br>
+        <ion-input
+        type="password"
+        fill="solid"
+        label="Password"
+        labelPlacement="floating"
+        helperText="Enter a valid password"
+        errorText="Invalid password"
+        ngModel
+        Password
+        ></ion-input>
+        <br>
+        <ion-button shape="round" [routerLink] = "['/perfil']">Ingresar</ion-button><ion-button shape="round" [routerLink] = "['/recuperar']">Recuperar contraseña</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
