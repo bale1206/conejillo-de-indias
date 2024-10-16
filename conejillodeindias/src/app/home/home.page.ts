@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
+  selector: 'app-home',
+  templateUrl: './login.page.html', 
+  styleUrls: ['./home.page.scss'],
 })
-export class LoginPage {
+export class HomePage {
   username: string = '';
   password: string = '';
 
@@ -16,7 +17,7 @@ export class LoginPage {
   login() {
     const success = this.authService.login(this.username, this.password);
     if (success) {
-      this.router.navigate(['/home']);  // Navega a la página de inicio
+      this.router.navigate(['/home']);  
     } else {
       alert('Usuario o contraseña incorrectos');
     }
