@@ -1,29 +1,24 @@
+// login.page.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
 })
-export class HomePage {
-  // Lógica del componente aquí
-}
 export class LoginPage {
-  loginForm: FormGroup;
+  username: string = '';
+  password: string = '';
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
-      usuario: ['', Validators.required],
-      contrasena: ['', Validators.required],
-    });
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const usuario = this.loginForm.value.usuario;
-      const contrasena = this.loginForm.value.contrasena;
-      console.log('username:', usuario, 'password:', contrasena);
+  login() {
+    const success = this.authService.login(this.username, this.password);
+    if (success) {
+      this.router.navigate(['/home']);  // Navega a la página de inicio
+    } else {
+      alert('Usuario o contraseña incorrectos');
     }
   }
 }

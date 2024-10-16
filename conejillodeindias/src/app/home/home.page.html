@@ -1,3 +1,4 @@
+<!-- login.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Acceso</ion-title>
@@ -11,31 +12,26 @@
         <ion-card-title>Login</ion-card-title>
         <ion-card-subtitle>Ingrese sus datos</ion-card-subtitle>
       </ion-card-header>
-    
+
       <ion-card-content>
         <ion-input
-        type="username"
-        fill="solid"
-        label="Username"
-        labelPlacement="floating"
-        helperText="Enter a valid username"
-        errorText="Invalid username"
-        ngModel
-        Username
+          type="text"
+          [(ngModel)]="username"
+          placeholder="Username"
+          fill="solid"
+          labelPlacement="floating"
         ></ion-input>
         <br>
         <ion-input
-        type="password"
-        fill="solid"
-        label="Password"
-        labelPlacement="floating"
-        helperText="Enter a valid password"
-        errorText="Invalid password"
-        ngModel
-        Password
+          type="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          fill="solid"
+          labelPlacement="floating"
         ></ion-input>
         <br>
-        <ion-button shape="round" [routerLink] = "['/perfil']">Ingresar</ion-button><ion-button shape="round" [routerLink] = "['/recuperar']">Recuperar contraseña</ion-button>
+        <ion-button shape="round" (click)="login()">Ingresar</ion-button>
+        <ion-button shape="round" routerLink="/recuperar">Recuperar contraseña</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

@@ -1,13 +1,13 @@
-<ion-header [translucent]="true">
+<!-- home.page.html -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <h1>Bienvenido/a</h1>
-<<<<<<< HEAD
+<ion-content>
+  <div id="container">
+    <h1>Bienvenido/a, {{ username }}!</h1>
+    <ion-button (click)="logout()">Cerrar sesión</ion-button>
+  </div>
 </ion-content>
-=======
-</ion-content>
->>>>>>> 83c8e50a8e4c1ff887119c976d4fa4d6a8d4b9e0
