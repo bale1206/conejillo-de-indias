@@ -4,12 +4,24 @@ import { StorageService } from './storage.service';
 @Injectable({
   providedIn: 'root',
 })
+<<<<<<< HEAD
 export class AuthenticatorService {
   getLoggedInUser(): string | null {
     throw new Error('Method not implemented.');
   }
   connnectionStatus: boolean = false;
   constructor(private storage: StorageService) {}
+
+export class AuthService {
+  login(username: string, password: string): boolean {
+    return true; 
+  }
+
+  logout() {
+  }
+
+  recoverPassword(email: string) {
+  }
 
   loginBDD(user: string, pass: String): Promise<boolean> {
     return this.storage

@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 import { RouterModule, Routes } from '@angular/router';
 import { PerfilPage } from './access/perfil/perfil.page';
+=======
+import { PreloadAllModules,RouterModule, Routes } from '@angular/router';
+import { PerfilPage } from './perfil/perfil.page';
+>>>>>>> 1e6328ee19d567e589918c2179fa7bb30e547b4f
 import { RecuperarPage } from './recuperar/recuperar.page';
+import { HomePage } from './home/home.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomePage },
   { path: 'perfil', component: PerfilPage },
   { path: 'recuperar', component: RecuperarPage },
   {
@@ -28,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
