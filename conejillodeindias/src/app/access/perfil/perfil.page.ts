@@ -1,7 +1,7 @@
 // home.page.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthenticatorService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class PerfilPage {
   username: string | null = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthenticatorService, private router: Router) {}
 
   ngOnInit() {
     this.username = this.authService.getLoggedInUser();

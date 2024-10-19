@@ -11,8 +11,8 @@ export class RecuperarPage {
 
   constructor(private authService: AuthService) {}
 
-  recoverPassword() {
-    this.authService.recoverPassword(this.email);
+  recuperarContrasena() {
+    this.authService.recuperarContrasena(this.email);
     alert('Si el correo es válido, se enviará un enlace para recuperar la contraseña.');
   }
 }

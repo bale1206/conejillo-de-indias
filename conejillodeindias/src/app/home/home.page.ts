@@ -1,24 +1,16 @@
-// login.page.ts
 import { Component } from '@angular/core';
+import { AuthenticatorService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
+  selector: 'app-home',
+  templateUrl: './home.page.html',
 })
-export class LoginPage {
+export class HomePage {
   username: string = '';
   password: string = '';
+  isLoggedIn: boolean = false;  // Maneja el estado del login
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthenticatorService, private router: Router) {}
 
-  login() {
-    const success = this.authService.login(this.username, this.password);
-    if (success) {
-      this.router.navigate(['/home']);  // Navega a la página de inicio
-    } else {
-      alert('Usuario o contraseña incorrectos');
-    }
-  }
 }
