@@ -4,65 +4,80 @@ import { StorageService } from './storage.service';
 @Injectable({
   providedIn: 'root',
 })
-<<<<<<< HEAD
 export class AuthenticatorService {
-  getLoggedInUser(): string | null {
-    throw new Error('Method not implemented.');
-  }
-  connnectionStatus: boolean = false;
+  private connnectionStatus: boolean = false;
+
   constructor(private storage: StorageService) {}
 
-export class AuthService {
-  login(username: string, password: string): boolean {
-    return true; 
+  getLoggedInUser(): string | null {
+    // Aquí deberías implementar la lógica para recuperar el usuario
+    // Por ejemplo, podrías almacenar el nombre de usuario en el almacenamiento
+    // y devolverlo aquí.
+    return null; 
   }
 
-  logout() {
-  }
-
-  recoverPassword(email: string) {
-  }
-
-  loginBDD(user: string, pass: String): Promise<boolean> {
-    return this.storage
-      .get(user)
-      .then((res) => {
-        if (res.password == pass) {
-          this.connnectionStatus = true;
-          return true;
-        } else {
-          return false;
-        }
-      })
-      .catch((error) => {
-        console.log('Error en el sistema: ' + error);
+  async loginBDD(user: string, pass: string): Promise<boolean> {
+    try {
+      const res = await this.storage.get(user);
+      if (res?.password === pass) {
+        this.connnectionStatus = true;
+        return true;
+      } else {
         return false;
-      });
+      }
+    } catch (error) {
+      console.log('Error al iniciar sesión: ' + error);
+      return false;
+    }
   }
-  login(user: String, pass: String): boolean {
-    if (user == 'va.latorre' && pass == 'nk1234') {
+
+  login(user: string, pass: string): boolean {
+    if (user === 'va.latorre' && pass === 'nk1234') {
       this.connnectionStatus = true;
       return true;
     }
     this.connnectionStatus = false;
     return false;
   }
-  logout() {
+
+  logout(): void {
     this.connnectionStatus = false;
   }
-  isConected() {
+
+  isConected(): boolean {
     return this.connnectionStatus;
   }
-  async registrar(user: any):Promise<boolean> {
-    return this.storage.set(user.username, user).then((res) => {
-        if (res != null) {
-          return true;
-        }else{
-          return false;
-        }
-      })
-      .catch((error) => {
-        return false;
-      });
+
+  async registrar(user: any): Promise<boolean> {
+    try {
+      await this.storage.set(user.username, user);
+      return true; // Siempre devuelve true si no hay error
+    } catch (error) {
+      console.log('Error en el registro: ' + error);
+      return false;
+    }
+  }
+}
+
+// Si AuthService es necesario, asegúrate de que sus métodos sean relevantes
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  recuperarContrasena(email: string) {
+    throw new Error('Método no implementado.');
+  }
+
+  login(username: string, password: string): boolean {
+    // Implementar la lógica de inicio de sesión aquí
+    return true;
+  }
+
+  logout() {
+    // Implementar la lógica de cierre de sesión aquí
+  }
+
+  recoverPassword(email: string) {
+    // Implementar la lógica de recuperación de contraseña aquí
   }
 }

@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';  // Import this to use Ionic components
+import { IonicModule } from '@ionic/angular';  
 
-import { HomePageRoutingModule } from './home-routing.module';  // Routing module for this page
-import { HomePage } from './home.page';  // The page component
+import { HomePageRoutingModule } from './home-routing.module';  
+import { HomePage } from './home.page';  
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,  // Import IonicModule here
-    HomePageRoutingModule,  // Import routing module
+    IonicModule,  
+    HomePageRoutingModule,  
   ],
   declarations: [HomePage],
 })

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Acceso de Usuario
+      Login
     </ion-title>
     <ion-button [routerLink]="['/support']" fill="clear" slot="end">
       Soporte
@@ -12,44 +12,40 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Acceso de Usuario</ion-title>
+      <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="login-container">
+  
+
+  <div id="container">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Portal de Acceso</ion-card-subtitle>
-        <ion-card-title>Ingresar</ion-card-title>
+        <div class="logo">
+          <img src="../../assets/img/tellevoapp.png" alt="Logo de la empresa">
+        </div>
+        <ion-card-subtitle>Bienvenido/a a TeLlevoApp</ion-card-subtitle>
+        <ion-card-title>Ingresa tus datos para comenzar</ion-card-title>
         <app-header></app-header>
       </ion-card-header>
 
       <ion-card-content>
-        <div *ngIf="!loading">
-          <div class="login-logo">
-            <img src="" alt="Logo de la empresa">
-          </div>
-          <ion-list>
-            <ion-item>
-              <ion-input [(ngModel)]="user.email" label="Correo Electrónico" labelPlacement="floating"
-                placeholder="Ingrese su correo"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input [(ngModel)]="user.password" label="Contraseña" type="password" labelPlacement="floating"
-                placeholder="Ingrese su contraseña"></ion-input>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label>{{errorMessage}}</ion-label>
-            </ion-item>
-          </ion-list>
-          <ion-button fill="outline" (click)="login()">Iniciar Sesión</ion-button>
-          <ion-button fill="clear" (click)="resetPassword()">Olvidé mi contraseña</ion-button>
-          <ion-button fill="outline" [routerLink]="['/signup']">Crear Cuenta</ion-button>
-        </div>
-        <div *ngIf="loading" class="loading-spinner">
-          <ion-label>Verificando datos...</ion-label>
-          <ion-spinner name="crescent"></ion-spinner>
-        </div>
+        <ion-list>
+          <ion-item>
+            <ion-input [(ngModel)]="user.email" label="Correo Electrónico" labelPlacement="floating"
+              placeholder="Ingrese su correo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="user.password" label="Contraseña" type="password" labelPlacement="floating"
+              placeholder="Ingrese su contraseña"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>{{errorMessage}}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-button fill="outline" [routerLink]="['/perfil']">Ingresar</ion-button>
+        <ion-button fill="outline" [routerLink]="['/register']">Crear Cuenta</ion-button>
+        <ion-button fill="clear" [routerLink]="['/recuperar']">Olvidaste tu contraseña?</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

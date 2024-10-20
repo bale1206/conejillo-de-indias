@@ -1,4 +1,3 @@
-// home.page.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticatorService } from '../../services/auth.service';
@@ -6,6 +5,7 @@ import { AuthenticatorService } from '../../services/auth.service';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage {
   username: string | null = '';
@@ -15,7 +15,7 @@ export class PerfilPage {
   ngOnInit() {
     this.username = this.authService.getLoggedInUser();
     if (!this.username) {
-      this.router.navigate(['/login']);  // Redirige si no hay usuario logueado
+      this.router.navigate(['/login']);  
     }
   }
 
