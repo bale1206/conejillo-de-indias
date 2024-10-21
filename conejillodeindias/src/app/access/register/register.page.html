@@ -3,11 +3,105 @@
     <ion-title>register</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">register</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <h2>Address Information</h2>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="address" value="" placeholder="Ingrese su dirección"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="number" value="" placeholder="Ingrese número"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="zipcode" value="" placeholder="Ingrese código zip"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-select aria-label="Región" placeholder="Seleccionar región">
+            <ion-select-option value="Región de Arica y Parinacota">Región de Arica y Parinacota</ion-select-option>
+            <ion-select-option value="Región de Tarapacá">Región de Tarapacá</ion-select-option>
+            <ion-select-option value="Región de Antofagasta">Región de Antofagasta</ion-select-option>
+            <ion-select-option value="Región de Atacama">Región de Atacama</ion-select-option>
+            <ion-select-option value="Región de Coquimbo">Región de Coquimbo</ion-select-option>
+            <ion-select-option value="Región de Valparaíso">Región de Valparaíso</ion-select-option>
+            <ion-select-option value="Región Metropolitana de Santiago">Región Metropolitana de Santiago</ion-select-option>
+            <ion-select-option value="Región de O'Higgins">Región de O'Higgins</ion-select-option>
+            <ion-select-option value="Región del Maule">Región del Maule</ion-select-option>
+            <ion-select-option value="Región de Ñuble">Región de Ñuble</ion-select-option>
+            <ion-select-option value="Región del Bíobío">Región del Bíobío</ion-select-option>
+            <ion-select-option value="Región de la Araucanía">Región de la Araucanía</ion-select-option>
+            <ion-select-option value="Región de los Ríos">Región de los Ríos</ion-select-option>
+            <ion-select-option value="Región de los Lagos">Región de los Lagos</ion-select-option>
+            <ion-select-option value="Región de Aysén">Región de Aysén</ion-select-option>
+            <ion-select-option value="Región de Magallanes">Región de Magallanes</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="city" value="" placeholder="Ingrese ciudad"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <h2>Contact</h2>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="name" value="" placeholder="Ingrese su nombre"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="email" value="" placeholder="Ingrese su correo electrónico"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="password" value="" placeholder="Ingrese su contraseña" type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="confpassword" value="" placeholder="Confirme su contraseña" type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list>
+        <ion-item>
+          <ion-input aria-label="phone" value="" placeholder="Ingrese su número de contacto"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+    </ion-card-content>
+  </ion-card>
+  <ion-button shape="round">Crear Cuenta</ion-button>
 </ion-content>
