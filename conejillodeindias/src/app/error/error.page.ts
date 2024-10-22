@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.page.html',
   styleUrls: ['./error.page.scss'],
 })
-export class ErrorPage implements OnInit {
+export class ErrorPage {
+  constructor(private navCtrl: NavController) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  retry() {
+    this.navCtrl.back();
   }
-
 }

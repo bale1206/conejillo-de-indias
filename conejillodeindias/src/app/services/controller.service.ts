@@ -1,13 +1,12 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIControllerService {
-
-  apiURL = "http://localhost:8100";
+  apiURL = "http://localhost:3000";
 
   constructor(private http: HttpClient) { }
   
@@ -20,7 +19,6 @@ export class APIControllerService {
   updateUser(id: string, data: any): Observable<any> {
     return this.http.put(this.apiURL + "/users/" + id, data);
   }
-
   deleteUser(id: string): Observable<any> {
     return this.http.delete(this.apiURL + "/users/" + id);
   }
