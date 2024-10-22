@@ -13,9 +13,11 @@ export class PerfilPage {
   constructor(private authService: AuthenticatorService, private router: Router) {}
 
   ngOnInit() {
-    this.username = this.authService.getLoggedInUser();
+    // Obtener el usuario del localStorage
+    this.username = localStorage.getItem('loggedInUser');
+  
     if (!this.username) {
-      this.router.navigate(['/login']);  
+      this.router.navigate(['/login']);
     }
   }
 
