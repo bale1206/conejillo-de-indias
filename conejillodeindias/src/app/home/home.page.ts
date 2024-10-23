@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';  // Importa el Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,14 @@ import { Router } from '@angular/router';  // Importa el Router
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  loginForm!: FormGroup;
-  errorMessage: string = '';  // Propiedad para los mensajes de error
+  loginForm!: FormGroup;  // Inicializa sin el "!"
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}  // Inyecta Router aquí
+  errorMessage: string = '';
+
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
+    // Asegúrate de inicializar loginForm correctamente
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -21,24 +23,22 @@ export class HomePage implements OnInit {
   }
 
   onSubmit() {
+    // Verifica si el formulario es válido antes de procesar
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
-  
-      if (email === 'test@example.com' && password === 'bahe123') {
-        console.log('Inicio de sesión exitoso');
-        this.errorMessage = '';  // Resetea el mensaje de error si es exitoso
-  
-        // Guardar el email en el localStorage
-        localStorage.setItem('loggedInUser', email);
-  
-        // Navegar a la página de perfil
-        this.router.navigate(['/perfil']);  // Redirigir a la página de perfil
+
+      const storedEmail = localStorage.getItem('userEmail');
+      const storedPassword = localStorage.getItem('userPassword');
+
+      // Comprueba credenciales
+      if (email === storedEmail && password === storedPassword) {
+        this.router.navigate(['/perfil']);  // Redirige a la página de perfil
       } else {
-        this.errorMessage = 'Correo o contraseña incorrectos';  
+        this.errorMessage = 'Credenciales incorrectas';
       }
     } else {
-      this.errorMessage = 'Por favor, rellena los campos correctamente';  
+      this.errorMessage = 'Por favor, complete todos los campos correctamente.';
     }
   }
 }

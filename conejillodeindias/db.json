@@ -1,19 +1,14 @@
 {
   "users": [
     {
-      "username": "he.mora",
+      "name": "helen",
       "email": "he.mora@duocuc.cl",
-      "password": "pass1234"
+      "password": "helen123"
     },
     {
-      "username": "va.latorre",
-      "email": "va.latorre@duocuc.cl.com",
-      "password": "password1234"
-    },
-    {
-      "username": "prueba",
-      "email": "prueba@duocuc.cl",
-      "password": "contraseña"
+      "name": "bale",
+      "email": "bale@duocuc.cl",
+      "password": "bale123"
     }
   ]
 }

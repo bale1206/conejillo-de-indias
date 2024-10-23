@@ -16,8 +16,8 @@
       <h1>Error</h1>
       <p>Lo sentimos, ocurrió un error inesperado. Por favor, intenta de nuevo más tarde.</p>
       <div class="button-container">
-        <ion-button expand="block" color="primary" routerLink="/home">Volver a Inicio</ion-button>
-        <ion-button expand="block" color="secondary" (click)="retry()">Reintentar</ion-button> <!-- Aquí se ha corregido el error -->
+        <ion-button expand="block" color="primary" [routerLink]="['/home']">Volver a Inicio</ion-button>
+        <ion-button expand="block" color="secondary" (click)="retry()">Reintentar</ion-button> 
       </div>
     </div>
   </ion-content>

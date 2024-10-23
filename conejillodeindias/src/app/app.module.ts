@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecuperarPage } from './recuperar/recuperar.page';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     IonicStorageModule.forRoot(),
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

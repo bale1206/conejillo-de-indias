@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Pagina de Inicio</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="container centered-content">
-    <h1>Bienvenido/a </h1>
+<ion-content [fullscreen]="true">
+  <div style="text-align: center; margin-top: 50px;">
+    <h1>Bienvenido/a, {{ username }}!</h1>
   </div>
 </ion-content>
