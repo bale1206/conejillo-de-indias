@@ -10,9 +10,7 @@ export class AuthenticatorService {
   constructor(private storage: StorageService) {}
 
   getLoggedInUser(): string | null {
-    // Aquí deberías implementar la lógica para recuperar el usuario
-    // Por ejemplo, podrías almacenar el nombre de usuario en el almacenamiento
-    // y devolverlo aquí.
+
     return null; 
   }
 
@@ -51,7 +49,7 @@ export class AuthenticatorService {
   async registrar(user: any): Promise<boolean> {
     try {
       await this.storage.set(user.username, user);
-      return true; // Siempre devuelve true si no hay error
+      return true; 
     } catch (error) {
       console.log('Error en el registro: ' + error);
       return false;
@@ -59,7 +57,7 @@ export class AuthenticatorService {
   }
 }
 
-// Si AuthService es necesario, asegúrate de que sus métodos sean relevantes
+
 @Injectable({
   providedIn: 'root',
 })
@@ -69,15 +67,15 @@ export class AuthService {
   }
 
   login(username: string, password: string): boolean {
-    // Implementar la lógica de inicio de sesión aquí
+  
     return true;
   }
 
   logout() {
-    // Implementar la lógica de cierre de sesión aquí
+
   }
 
   recoverPassword(email: string) {
-    // Implementar la lógica de recuperación de contraseña aquí
+
   }
 }

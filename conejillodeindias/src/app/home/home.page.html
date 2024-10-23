@@ -60,6 +60,9 @@
         <ion-button fill="clear" [routerLink]="['/recuperar']">Olvidaste tu contraseña?</ion-button>
         <ion-button fill="clear" [routerLink]="['/controller']">Acceso secreto confidencial</ion-button>
         <ion-button fill="outline" [routerLink]="['/error']">No apretar</ion-button>
+        <div *ngIf="loading" class="spinner-container">
+          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>

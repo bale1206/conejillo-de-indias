@@ -11,7 +11,6 @@ export class RegisterPage implements OnInit {
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
-    // Inicializar el formulario aquí
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -24,12 +23,10 @@ export class RegisterPage implements OnInit {
   onSubmit() {
     if (this.registerForm.valid) {
       const { name, email, password } = this.registerForm.value;
-      // Guardar los datos en localStorage (o en tu servicio)
       localStorage.setItem('userName', name);
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userPassword', password);
 
-      // Redirigir a la página de inicio
       this.router.navigate(['/home']);
     } else {
       console.log('Formulario no válido');

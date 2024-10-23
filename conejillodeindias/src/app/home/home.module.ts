@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { ReactiveFormsModule } from '@angular/forms'; 
 
 
+
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

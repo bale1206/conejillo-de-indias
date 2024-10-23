@@ -15,68 +15,68 @@ interface User {
 })
 export class ControllerPage implements OnInit {
 
-  userForm!: FormGroup; // Formulario reactivo, ¡operador para evitar inicialización temprana!
-  users: User[] = []; // Lista de usuarios con tipo definido
-  editingUser: User | null = null; // Para manejar ediciones
+  userForm!: FormGroup; 
+  users: User[] = []; 
+  editingUser: User | null = null; 
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    // Inicializar el formulario con validaciones
+    
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
 
-    // Cargar la lista de usuarios inicial
+    
     this.users = [
       { id: 1, name: 'helen', email: 'he.mora@duocuc.cl', password: 'helen123' },
       { id: 2, name: 'bale', email: 'bale@duocuc.cl', password: 'bale123' }
     ];
   }
 
-  // Método para agregar o modificar un usuario
+  
   onSubmit() {
     if (this.userForm.valid) {
       if (this.editingUser) {
-        // Modificar un usuario existente
+        
         const index = this.users.findIndex(u => u.id === this.editingUser!.id);
         this.users[index] = {
           id: this.editingUser.id,
           ...this.userForm.value
         };
-        this.editingUser = null; // Resetear el modo de edición
+        this.editingUser = null; 
       } else {
-        // Crear un nuevo usuario
+        
         const newUser: User = {
           id: this.users.length + 1,
           name: this.userForm.value.name,
           email: this.userForm.value.email,
           password: this.userForm.value.password
         };
-        this.users.push(newUser); // Añadir el nuevo usuario a la lista
+        this.users.push(newUser); 
       }
-      this.userForm.reset(); // Limpiar el formulario después de añadir o modificar
+      this.userForm.reset(); 
     }
   }
 
-  // Método para iniciar la edición de un usuario
+  
   modificarUsuario(id: number) {
     const user = this.users.find(u => u.id === id);
 
     if (user) {
-      // Cargar la información del usuario en el formulario
+      
       this.userForm.patchValue({
         name: user.name,
         email: user.email,
         password: user.password
       });
-      this.editingUser = user; // Guardar el usuario en edición
+      this.editingUser = user; 
     }
   }
 
-  // Método para eliminar un usuario
+  
   eliminarUsuario(id: number) {
     this.users = this.users.filter(user => user.id !== id);
   }

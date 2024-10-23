@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  username: string | null = '';  // Asegúrate de que esta propiedad esté definida
+  username: string | null = '';  
 
   ngOnInit() {
-    this.username = localStorage.getItem('userName') || 'Usuario';  // Aquí se asigna el valor
+    this.username = localStorage.getItem('userName') || 'Usuario';  
   }
 }
