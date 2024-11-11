@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
         this.loading = false;
       }, 2000);
     } else {
-      this.errorMessage = 'Por favor, complete todos los campos correctamente.';
+      this.errorMessage = 'Por favor, complete todos los campos correctamente.'; //revisar esto
     }
   }
 }

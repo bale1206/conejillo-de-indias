@@ -4,19 +4,25 @@
       "name": "bale",
       "email": "bale@duocuc.cl",
       "password": "bale123",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "fabi",
       "email": "fabi@duocuc.cl",
       "password": "fabi123",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "helen",
       "email": "he.mora@duocuc.cl",
       "password": "helen123",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "id": "2dd7",
+      "name": "bale",
+      "email": "bale.1206@gmail.com",
+      "password": "bale123"
     }
   ]
 }
