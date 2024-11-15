@@ -66,7 +66,7 @@ export class AuthService {
     throw new Error('Método no implementado.');
   }
 
-  login(username: string, password: string): boolean {
+  login(email: string, password: string): boolean {
   
     return true;
   }

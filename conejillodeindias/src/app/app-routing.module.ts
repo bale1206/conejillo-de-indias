@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilPage },
   { path: 'recuperar', component: RecuperarPage },
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),  
   },
   {

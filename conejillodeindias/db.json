@@ -23,6 +23,24 @@
       "name": "bale",
       "email": "bale.1206@gmail.com",
       "password": "bale123"
+    },
+    {
+      "id": "6f6f",
+      "name": "vale",
+      "email": "vale@gmail.com",
+      "password": "vale123"
+    },
+    {
+      "id": "ea12",
+      "name": "vale",
+      "email": "vale@gmail.com",
+      "password": "pass12345"
+    },
+    {
+      "id": "21df",
+      "name": "pepe",
+      "email": "pepe@gmail.com",
+      "password": "pepe123"
     }
   ]
 }

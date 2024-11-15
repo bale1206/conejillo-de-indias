@@ -36,6 +36,7 @@ export class HomePage implements OnInit {
 
       setTimeout(() => {
         if (email === storedEmail && password === storedPassword) {
+          //Crear metodo login en auth.service y comunicar aca 
           this.router.navigate(['/perfil']); 
         } else {
           this.errorMessage = 'Credenciales incorrectas';

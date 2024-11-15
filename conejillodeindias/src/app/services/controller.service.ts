@@ -22,4 +22,7 @@ export class APIControllerService {
   deleteUser(id: string): Observable<any> {
     return this.http.delete(this.apiURL + "/users/" + id);
   }
+  login(email:string,pass:string):Observable<any>{
+    return this.http.get(this.apiURL+"/users/?email="+email+"&password="+pass)
+  }
 }
