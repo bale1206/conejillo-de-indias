@@ -27,17 +27,14 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./access/register/register.module').then( m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'add-pasajero',
     loadChildren: () => import('./pasajeros/add-pasajero/add-pasajero.module').then( m => m.AddPasajeroPageModule)
   },
   {
     path: 'list-pasajero',
     loadChildren: () => import('./pasajeros/list-pasajero/list-pasajero.module').then( m => m.ListPasajeroPageModule)
-  },
-  {
-    path: 'update',
-    loadChildren: () => import('./pasajeros/update/update.module').then( m => m.UpdatePageModule)
   },
   {
     path: 'update-pasajero',

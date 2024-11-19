@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -29,15 +32,6 @@ export class AuthenticatorService {
     }
   }
 
-  login(user: string, pass: string): boolean {
-    if (user === 'va.latorre' && pass === 'nk1234') {
-      this.connnectionStatus = true;
-      return true;
-    }
-    this.connnectionStatus = false;
-    return false;
-  }
-
   logout(): void {
     this.connnectionStatus = false;
   }
@@ -62,13 +56,31 @@ export class AuthenticatorService {
   providedIn: 'root',
 })
 export class AuthService {
+  private apiUrl = 'http://localhost:3000/users';
+
+  constructor(private http: HttpClient) {}
   recuperarContrasena(email: string) {
     throw new Error('Método no implementado.');
   }
 
-  login(email: string, password: string): boolean {
-  
-    return true;
+  login(email: string, password: string): Observable<boolean> {
+    return new Observable<boolean>((observer) => {
+      this.http.get<any[]>(this.apiUrl).subscribe({
+        next: (users) => {
+          // Verifica si hay algún usuario con el email y la contraseña proporcionados
+          const user = users.find((user) => user.email === email && user.password === password);
+          if (user) {
+            observer.next(true);
+          } else {
+            observer.next(false);
+          }
+        },
+        error: (err) => {
+          console.error('Error al autenticar usuario', err);
+          observer.next(false);
+        },
+      });
+    });
   }
 
   logout() {
@@ -77,5 +89,9 @@ export class AuthService {
 
   recoverPassword(email: string) {
 
+  }
+
+  saveUser(user: { email: string; password: string; name: string }): Observable<any> {
+    return this.http.post(this.apiUrl, user); // Envía el usuario al servidor
   }
 }

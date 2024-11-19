@@ -40,6 +40,7 @@ export class RegisterPage implements OnInit {
         });
     } else {
       console.log('Formulario no válido');
+      alert('Por favor, complete todos los campos correctamente.');
     }
   }
 }
