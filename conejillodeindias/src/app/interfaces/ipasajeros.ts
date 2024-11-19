@@ -1,0 +1,2 @@
+export interface IPasajeros {
+}
